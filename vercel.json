@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "titan/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/tasks", "dest": "/server.js" },
+    { "src": "/tasks/(.*)", "dest": "/server.js" },
+    { "src": "/(.*)", "dest": "/titan/$1" }
+  ]
+}
